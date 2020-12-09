@@ -1,11 +1,12 @@
 module github.com/yawn/ykoath
 
-go 1.22.0
+go 1.24.0
 
 require (
 	github.com/ebfe/scard v0.0.0-20230420082256-7db3f9b7c8a7
 	github.com/pkg/errors v0.9.1
 	github.com/stretchr/testify v1.8.4
+	golang.org/x/crypto v0.42.0
 )
 
 require (
