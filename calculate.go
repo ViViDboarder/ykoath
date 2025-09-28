@@ -40,6 +40,13 @@ func (o *OATH) Calculate(name string, touchRequiredCallback func(string) error) 
 	var key, code string
 	var matches []string
 	for k, c := range res {
+		// Check for exact match
+		if k == name {
+			matches = []string{k}
+			break
+		}
+
+		// Check for partial match
 		if strings.Contains(strings.ToLower(k), strings.ToLower(name)) {
 			key = k
 			code = c
