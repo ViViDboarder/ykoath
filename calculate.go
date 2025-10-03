@@ -42,6 +42,8 @@ func (o *OATH) Calculate(name string, touchRequiredCallback func(string) error) 
 	for k, c := range res {
 		// Check for exact match
 		if k == name {
+			key = k
+			code = c
 			matches = []string{k}
 			break
 		}
