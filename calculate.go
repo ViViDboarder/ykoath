@@ -7,10 +7,10 @@ import (
 )
 
 const (
-	errNoValuesFound = "no values found in response (% x)"
-	errUnknownName   = "no such name configued (%s)"
+	errNoValuesFound   = "no values found in response (% x)"
+	errUnknownName     = "no such name configued (%s)"
 	errMultipleMatches = "multiple matches found (%s)"
-	touchRequired    = "touch-required"
+	touchRequired      = "touch-required"
 )
 
 // Calculate is a high-level function that first identifies all TOTP credentials
@@ -32,6 +32,8 @@ func (o *OATH) Calculate(name string, touchRequiredCallback func(string) error) 
 	for k, c := range res {
 		// Check for exact match
 		if k == name {
+			key = k
+			code = c
 			matches = []string{k}
 			break
 		}
